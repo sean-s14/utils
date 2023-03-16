@@ -16,3 +16,12 @@ export function capitalise(str: string): string {
 export function calculatePercent(value: number, total: number): number {
   return Math.round((value / total) * 100);
 }
+
+/**
+ * Return a randomly selected item from an array
+ * @param {Array}
+ * @return {any}
+ */
+export function getRandomItem(items: any[]): any {
+  return items[Math.floor(Math.random() * items.length)];
+}
