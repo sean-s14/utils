@@ -22,6 +22,15 @@ export function calculatePercent(value: number, total: number): number {
  * @param {Array}
  * @return {any}
  */
-export function getRandomItem(items: any[]): any {
+export function getRandomItem<T>(items: T[]): T {
   return items[Math.floor(Math.random() * items.length)];
+}
+
+/**
+ * Removes all duplicates from an array
+ * @param {Array}
+ * @return {any}
+ */
+export function removeDuplicates<T>(arr: T[]): T[] {
+  return [...new Set(arr)];
 }

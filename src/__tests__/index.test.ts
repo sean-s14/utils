@@ -1,4 +1,4 @@
-import { capitalise, calculatePercent, getRandomItem } from '../index';
+import { capitalise, calculatePercent, getRandomItem, removeDuplicates } from '../index';
 
 test('capitalise', () => {
   expect(capitalise('sean')).toBe('Sean');
@@ -17,4 +17,11 @@ test('getRandomItem', () => {
   expect(getRandomItem(numArr)).toBeLessThan(8);
   expect(getRandomItem(strArr).length).toBeGreaterThan(3);
   expect(getRandomItem(strArr).length).toBeLessThan(6);
+});
+
+test('removeDuplicates', () => {
+  let numArr = [4, 4, 5, 6, 7, 7, 8];
+  let strArr = ['Mike', 'Lily', 'Mike', 'Cassy'];
+  expect(removeDuplicates(numArr)).toStrictEqual([4, 5, 6, 7, 8]);
+  expect(removeDuplicates(strArr)).toStrictEqual(['Mike', 'Lily', 'Cassy']);
 });
