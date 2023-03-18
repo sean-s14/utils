@@ -27,10 +27,21 @@ export function getRandomItem<T>(items: T[]): T {
 }
 
 /**
- * Removes all duplicates from an array
+ * Removes all duplicates from an array.
+ * Uses Set data structure to filter out duplicates.
  * @param {Array}
- * @return {any}
+ * @return {Array}
  */
 export function removeDuplicates<T>(arr: T[]): T[] {
-  return [...new Set(arr)];
+  return Array.from(new Set(arr));
+}
+
+/**
+ * Sort a list of objects based on the value of a specified key
+ * @param {Array} arr
+ * @param {any} key
+ * @return {Array}
+ */
+export function sortBy<T>(arr: T[], key: keyof T) {
+  return arr.sort((a, b) => (a[key] > b[key] ? 1 : a[key] < b[key] ? -1 : 0));
 }

@@ -1,4 +1,4 @@
-import { capitalise, calculatePercent, getRandomItem, removeDuplicates } from '../index';
+import { capitalise, calculatePercent, getRandomItem, removeDuplicates, sortBy } from '../index';
 
 test('capitalise', () => {
   expect(capitalise('sean')).toBe('Sean');
@@ -24,4 +24,24 @@ test('removeDuplicates', () => {
   let strArr = ['Mike', 'Lily', 'Mike', 'Cassy'];
   expect(removeDuplicates(numArr)).toStrictEqual([4, 5, 6, 7, 8]);
   expect(removeDuplicates(strArr)).toStrictEqual(['Mike', 'Lily', 'Cassy']);
+});
+
+test('sortBy', () => {
+  let list = [
+    { name: 'Daniel', age: 23 },
+    { name: 'Samantha', age: 19 },
+    { name: 'Jason', age: 22 },
+  ];
+  let listSortedByName = [
+    { name: 'Daniel', age: 23 },
+    { name: 'Jason', age: 22 },
+    { name: 'Samantha', age: 19 },
+  ];
+  let listSortedByAge = [
+    { name: 'Samantha', age: 19 },
+    { name: 'Jason', age: 22 },
+    { name: 'Daniel', age: 23 },
+  ];
+  expect(sortBy(list, 'name')).toStrictEqual(listSortedByName);
+  expect(sortBy(list, 'age')).toStrictEqual(listSortedByAge);
 });
