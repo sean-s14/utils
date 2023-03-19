@@ -42,6 +42,18 @@ export function removeDuplicates<T>(arr: T[]): T[] {
  * @param {any} key
  * @return {Array}
  */
-export function sortBy<T>(arr: T[], key: keyof T) {
+export function sortBy<T>(arr: T[], key: keyof T): T[] {
   return arr.sort((a, b) => (a[key] > b[key] ? 1 : a[key] < b[key] ? -1 : 0));
+}
+
+/**
+ * Checks for equality between two values.
+ * Especially helpful for arrays and objects.
+ * The order of the values in an object is relevant.
+ * @param {any} a
+ * @param {any} b
+ * @return {boolean}
+ */
+export function isEqual(a: any, b: any): boolean {
+  return JSON.stringify(a) === JSON.stringify(b);
 }

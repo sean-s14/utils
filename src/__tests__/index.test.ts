@@ -1,4 +1,4 @@
-import { capitalise, calculatePercent, getRandomItem, removeDuplicates, sortBy } from '../index';
+import { capitalise, calculatePercent, getRandomItem, removeDuplicates, sortBy, isEqual } from '../index';
 
 test('capitalise', () => {
   expect(capitalise('sean')).toBe('Sean');
@@ -44,4 +44,15 @@ test('sortBy', () => {
   ];
   expect(sortBy(list, 'name')).toStrictEqual(listSortedByName);
   expect(sortBy(list, 'age')).toStrictEqual(listSortedByAge);
+});
+
+test('isEqual', () => {
+  let arr1 = [4, '4', 8];
+  let arr2 = [4, 4, 8];
+  let obj1 = { name: 'Michael', age: 26 };
+  let obj2 = { name: 'Michael', age: 26 };
+  let obj3 = { age: 26, name: 'Michael' };
+  expect(isEqual(arr1, arr2)).toBe(false);
+  expect(isEqual(obj1, obj2)).toBe(true);
+  expect(isEqual(obj1, obj3)).toBe(false);
 });
