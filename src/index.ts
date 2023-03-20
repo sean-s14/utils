@@ -57,3 +57,12 @@ export function sortBy<T>(arr: T[], key: keyof T): T[] {
 export function isEqual(a: any, b: any): boolean {
   return JSON.stringify(a) === JSON.stringify(b);
 }
+
+/**
+ * Counts the number of occurrences of a particular value in an array
+ * @param {Array} arr
+ * @param {any} val
+ */
+export function count(arr: any[], val: any): any[] {
+  return arr.reduce((a, v) => (v === val ? a + 1 : a), 0);
+}
