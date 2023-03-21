@@ -1,4 +1,4 @@
-import { capitalise, calculatePercent, getRandomItem, removeDuplicates, sortBy, isEqual, count } from '../index';
+import { capitalise, calculatePercent, getRandomItem, removeDuplicates, sortBy, isEqual, count, wait } from '../index';
 
 test('capitalise', () => {
   expect(capitalise('sean')).toBe('Sean');
@@ -61,4 +61,9 @@ test('count', () => {
   let arr = [1, 1, 2, 3, 4, 4, 5];
   expect(count(arr, 3)).toBe(1);
   expect(count(arr, 4)).toBe(2);
+});
+
+test('wait', () => {
+  expect(wait(500).then(() => 500)).resolves.toBe(500);
+  expect(wait(1000).then(() => 1000)).resolves.toBe(1000);
 });

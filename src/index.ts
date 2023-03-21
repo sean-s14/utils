@@ -62,7 +62,17 @@ export function isEqual(a: any, b: any): boolean {
  * Counts the number of occurrences of a particular value in an array
  * @param {Array} arr
  * @param {any} val
+ * @return {any}
  */
 export function count(arr: any[], val: any): any[] {
   return arr.reduce((a, v) => (v === val ? a + 1 : a), 0);
+}
+
+/**
+ * Returns a promise which resolves after a specified amount of time
+ * @param {number} milliseconds
+ * @return {Promise}
+ */
+export async function wait<T>(milliseconds: number): Promise<T> {
+  return new Promise((resolve) => setTimeout(resolve, milliseconds));
 }
