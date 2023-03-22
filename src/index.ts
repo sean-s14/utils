@@ -76,3 +76,13 @@ export function count(arr: any[], val: any): any[] {
 export async function wait<T>(milliseconds: number): Promise<T> {
   return new Promise((resolve) => setTimeout(resolve, milliseconds));
 }
+
+/**
+ * Returns an array with only the values of the property that was specified
+ * @param {Array} objs
+ * @param {string} key
+ * @return {Array}
+ */
+export function pluck<T>(objs: T[], key: keyof T): T[typeof key][] {
+  return objs.map((obj) => obj[key]);
+}

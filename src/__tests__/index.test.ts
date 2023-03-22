@@ -1,4 +1,14 @@
-import { capitalise, calculatePercent, getRandomItem, removeDuplicates, sortBy, isEqual, count, wait } from '../index';
+import {
+  capitalise,
+  calculatePercent,
+  getRandomItem,
+  removeDuplicates,
+  sortBy,
+  isEqual,
+  count,
+  wait,
+  pluck,
+} from '../index';
 
 test('capitalise', () => {
   expect(capitalise('sean')).toBe('Sean');
@@ -66,4 +76,13 @@ test('count', () => {
 test('wait', () => {
   expect(wait(500).then(() => 500)).resolves.toBe(500);
   expect(wait(1000).then(() => 1000)).resolves.toBe(1000);
+});
+
+test('pluck', () => {
+  const arr = [
+    { name: 'William', age: 27 },
+    { name: 'Lucy', age: 24 },
+  ];
+  expect(pluck(arr, 'name')).toStrictEqual(['William', 'Lucy']);
+  expect(pluck(arr, 'age')).toStrictEqual([27, 24]);
 });
