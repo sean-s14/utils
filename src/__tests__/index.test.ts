@@ -8,6 +8,7 @@ import {
   count,
   wait,
   pluck,
+  insert,
 } from '../index';
 
 test('capitalise', () => {
@@ -85,4 +86,10 @@ test('pluck', () => {
   ];
   expect(pluck(arr, 'name')).toStrictEqual(['William', 'Lucy']);
   expect(pluck(arr, 'age')).toStrictEqual([27, 24]);
+});
+
+test('insert', () => {
+  const arr = [1, 4];
+  expect(insert(arr, 1, 2)).toStrictEqual([1, 2, 4]);
+  expect(insert(arr, 2, 5)).toStrictEqual([1, 4, 5]);
 });

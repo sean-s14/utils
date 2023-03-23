@@ -86,3 +86,14 @@ export async function wait<T>(milliseconds: number): Promise<T> {
 export function pluck<T>(objs: T[], key: keyof T): T[typeof key][] {
   return objs.map((obj) => obj[key]);
 }
+
+/**
+ * An alternative to "splice" which does not mutate the original array
+ * @param {Array} arr
+ * @param {number} index
+ * @param {any} newItem
+ * @return {Array}
+ */
+export function insert(arr: any[], index: number, newItem: any): any[] {
+  return [...arr.slice(0, index), newItem, ...arr.slice(index)];
+}
