@@ -9,6 +9,7 @@ import {
   wait,
   pluck,
   insert,
+  sum,
 } from '../index';
 
 test('capitalise', () => {
@@ -92,4 +93,11 @@ test('insert', () => {
   const arr = [1, 4];
   expect(insert(arr, 1, 2)).toStrictEqual([1, 2, 4]);
   expect(insert(arr, 2, 5)).toStrictEqual([1, 4, 5]);
+});
+
+test('sum', () => {
+  const arr1 = [1, 2, 3, 4];
+  const arr2 = [1, -2, 3, 4];
+  expect(sum(arr1)).toBe(10);
+  expect(sum(arr2)).toBe(6);
 });

@@ -97,3 +97,12 @@ export function pluck<T>(objs: T[], key: keyof T): T[typeof key][] {
 export function insert(arr: any[], index: number, newItem: any): any[] {
   return [...arr.slice(0, index), newItem, ...arr.slice(index)];
 }
+
+/**
+ * Returns the sum of all numbers in the input array
+ * @param {Array} arr
+ * @return {number}
+ */
+export function sum(arr: number[]): number {
+  return arr.reduce((a, b) => a + b, 0);
+}
