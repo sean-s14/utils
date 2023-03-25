@@ -106,3 +106,12 @@ export function insert(arr: any[], index: number, newItem: any): any[] {
 export function sum(arr: number[]): number {
   return arr.reduce((a, b) => a + b, 0);
 }
+
+/**
+ * Generates an array of numbers starting from 0 up to (but not including) the number specified
+ * @param {number} count
+ * @return {Array}
+ */
+export function generateArray(count: number): number[] {
+  return Array.from(Array(count).keys());
+}

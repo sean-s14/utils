@@ -10,6 +10,7 @@ import {
   pluck,
   insert,
   sum,
+  generateArray,
 } from '../index';
 
 test('capitalise', () => {
@@ -100,4 +101,9 @@ test('sum', () => {
   const arr2 = [1, -2, 3, 4];
   expect(sum(arr1)).toBe(10);
   expect(sum(arr2)).toBe(6);
+});
+
+test('generateArray', () => {
+  expect(generateArray(5)).toStrictEqual([0, 1, 2, 3, 4]);
+  expect(generateArray(7)).toStrictEqual([0, 1, 2, 3, 4, 5, 6]);
 });
