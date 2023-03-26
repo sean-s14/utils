@@ -112,6 +112,6 @@ export function sum(arr: number[]): number {
  * @param {number} count
  * @return {Array}
  */
-export function generateArray(count: number): number[] {
-  return Array.from(Array(count).keys());
+export function generateArray(count: number, start: number = 0): number[] {
+  return Array.from(Array(count).keys()).map((i) => i + start);
 }
