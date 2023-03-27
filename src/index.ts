@@ -1,10 +1,10 @@
 /**
  * Capitalises the first letter of a string
- * @param {string} str
+ * @param {string} string
  * @return {string}
  */
-export function capitalise(str: string): string {
-  return `${str.charAt(0).toUpperCase()}${str.slice(1)}`;
+export function capitalise(string: string): string {
+  return `${string.charAt(0).toUpperCase()}${string.slice(1)}`;
 }
 
 /**
@@ -32,18 +32,18 @@ export function getRandomItem<T>(items: T[]): T {
  * @param {Array}
  * @return {Array}
  */
-export function removeDuplicates<T>(arr: T[]): T[] {
-  return Array.from(new Set(arr));
+export function removeDuplicates<T>(array: T[]): T[] {
+  return Array.from(new Set(array));
 }
 
 /**
  * Sort a list of objects based on the value of a specified key
- * @param {Array} arr
+ * @param {Array} array
  * @param {any} key
  * @return {Array}
  */
-export function sortBy<T>(arr: T[], key: keyof T): T[] {
-  return arr.sort((a, b) => (a[key] > b[key] ? 1 : a[key] < b[key] ? -1 : 0));
+export function sortBy<T>(array: T[], key: keyof T): T[] {
+  return array.sort((a, b) => (a[key] > b[key] ? 1 : a[key] < b[key] ? -1 : 0));
 }
 
 /**
@@ -60,12 +60,12 @@ export function isEqual(a: any, b: any): boolean {
 
 /**
  * Counts the number of occurrences of a particular value in an array
- * @param {Array} arr
+ * @param {Array} array
  * @param {any} val
  * @return {any}
  */
-export function count(arr: any[], val: any): any[] {
-  return arr.reduce((a, v) => (v === val ? a + 1 : a), 0);
+export function count(array: any[], val: any): any[] {
+  return array.reduce((a, v) => (v === val ? a + 1 : a), 0);
 }
 
 /**
@@ -89,22 +89,22 @@ export function pluck<T>(objs: T[], key: keyof T): T[typeof key][] {
 
 /**
  * An alternative to "splice" which does not mutate the original array
- * @param {Array} arr
+ * @param {Array} array
  * @param {number} index
  * @param {any} newItem
  * @return {Array}
  */
-export function insert(arr: any[], index: number, newItem: any): any[] {
-  return [...arr.slice(0, index), newItem, ...arr.slice(index)];
+export function insert(array: any[], index: number, newItem: any): any[] {
+  return [...array.slice(0, index), newItem, ...array.slice(index)];
 }
 
 /**
  * Returns the sum of all numbers in the input array
- * @param {Array} arr
+ * @param {Array} array
  * @return {number}
  */
-export function sum(arr: number[]): number {
-  return arr.reduce((a, b) => a + b, 0);
+export function sum(array: number[]): number {
+  return array.reduce((a, b) => a + b, 0);
 }
 
 /**
@@ -114,4 +114,13 @@ export function sum(arr: number[]): number {
  */
 export function generateArray(count: number, start: number = 0): number[] {
   return Array.from(Array(count).keys()).map((i) => i + start);
+}
+
+/**
+ * Shuffles the elements of within an array in-place
+ * @param {Array} array
+ * @return {Array}
+ */
+export function shuffle<T>(array: T[]): T[] {
+  return array.sort(() => Math.random() - 0.5);
 }
