@@ -124,3 +124,12 @@ export function generateArray(count: number, start: number = 0): number[] {
 export function shuffle<T>(array: T[]): T[] {
   return array.sort(() => Math.random() - 0.5);
 }
+
+/**
+ * Sorts and returns a new array
+ * @param {Array} array
+ * @return {Array}
+ */
+export function sortAsc(array: any[]): any[] {
+  return array.sort((a, b) => a - b);
+}

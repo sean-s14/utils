@@ -11,6 +11,7 @@ import {
   insert,
   sum,
   generateArray,
+  sortAsc,
 } from '../index';
 
 test('capitalise', () => {
@@ -107,4 +108,11 @@ test('generateArray', () => {
   expect(generateArray(5)).toStrictEqual([0, 1, 2, 3, 4]);
   expect(generateArray(7)).toStrictEqual([0, 1, 2, 3, 4, 5, 6]);
   expect(generateArray(3, 7)).toStrictEqual([7, 8, 9]);
+});
+
+test('sortAsc', () => {
+  const arr1 = [1, -2, 3, 4];
+  const arr2 = [54, -2, 7, 0];
+  expect(sortAsc(arr1)).toStrictEqual([-2, 1, 3, 4]);
+  expect(sortAsc(arr2)).toStrictEqual([-2, 0, 7, 54]);
 });
