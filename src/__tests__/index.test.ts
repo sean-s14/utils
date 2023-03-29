@@ -12,6 +12,7 @@ import {
   sum,
   generateArray,
   sortAsc,
+  sortDesc,
 } from '../index';
 
 test('capitalise', () => {
@@ -115,4 +116,11 @@ test('sortAsc', () => {
   const arr2 = [54, -2, 7, 0];
   expect(sortAsc(arr1)).toStrictEqual([-2, 1, 3, 4]);
   expect(sortAsc(arr2)).toStrictEqual([-2, 0, 7, 54]);
+});
+
+test('sortDesc', () => {
+  const arr1 = [1, -2, 3, 4];
+  const arr2 = [54, -2, 7, 0];
+  expect(sortDesc(arr1)).toStrictEqual([4, 3, 1, -2]);
+  expect(sortDesc(arr2)).toStrictEqual([54, 7, 0, -2]);
 });

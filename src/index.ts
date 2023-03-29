@@ -126,10 +126,19 @@ export function shuffle<T>(array: T[]): T[] {
 }
 
 /**
- * Sorts and returns a new array
+ * Sorts and returns a new array in ascending order
  * @param {Array} array
  * @return {Array}
  */
 export function sortAsc(array: any[]): any[] {
   return array.sort((a, b) => a - b);
+}
+
+/**
+ * Sorts and returns a new array in descending order
+ * @param {Array} array
+ * @return {Array}
+ */
+export function sortDesc(array: any[]): any[] {
+  return array.sort((a, b) => b - a);
 }
