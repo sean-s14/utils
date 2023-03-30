@@ -13,6 +13,7 @@ import {
   generateArray,
   sortAsc,
   sortDesc,
+  randomString,
 } from '../index';
 
 test('capitalise', () => {
@@ -123,4 +124,11 @@ test('sortDesc', () => {
   const arr2 = [54, -2, 7, 0];
   expect(sortDesc(arr1)).toStrictEqual([4, 3, 1, -2]);
   expect(sortDesc(arr2)).toStrictEqual([54, 7, 0, -2]);
+});
+
+test('randomString', () => {
+  expect(typeof randomString()).toBe('string');
+  expect(randomString().length).toBe(8);
+  expect(randomString(1).length).toBe(1);
+  expect(randomString(100).length).toBe(100);
 });

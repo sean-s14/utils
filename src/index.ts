@@ -142,3 +142,18 @@ export function sortAsc(array: any[]): any[] {
 export function sortDesc(array: any[]): any[] {
   return array.sort((a, b) => b - a);
 }
+
+/**
+ * Generates a random string of lowercase alphabetic characters
+ * @param {number} length
+ * @return {string}
+ */
+export function randomString(length: number = 8): string {
+  return Array.apply(0, Array(length))
+    .map(function () {
+      let chrs = 'abcdefghijklmnopqrstuvwxyz';
+      let chrs_length = chrs.length;
+      return chrs.charAt(Math.floor(Math.random() * chrs_length));
+    })
+    .join('');
+}
