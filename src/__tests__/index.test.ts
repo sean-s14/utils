@@ -14,6 +14,7 @@ import {
   sortAsc,
   sortDesc,
   randomString,
+  getRandomColor,
 } from '../index';
 
 test('capitalise', () => {
@@ -131,4 +132,8 @@ test('randomString', () => {
   expect(randomString().length).toBe(8);
   expect(randomString(1).length).toBe(1);
   expect(randomString(100).length).toBe(100);
+});
+
+test('getRandomColor', () => {
+  expect(getRandomColor()).toEqual(expect.stringMatching(/#[a-z0-9]{6}/i));
 });

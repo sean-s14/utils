@@ -157,3 +157,11 @@ export function randomString(length: number = 8): string {
     })
     .join('');
 }
+
+/**
+ * Generate a random color in hexadecimal form
+ * @return {string}
+ */
+export function getRandomColor(): string {
+  return '#' + (((1 << 24) * Math.random()) | 0).toString(16).padStart(6);
+}
