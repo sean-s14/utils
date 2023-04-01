@@ -165,3 +165,27 @@ export function randomString(length: number = 8): string {
 export function getRandomColor(): string {
   return '#' + (((1 << 24) * Math.random()) | 0).toString(16).padStart(6);
 }
+
+/**
+ * Converts a hexadecimal string to an object containing integers r, g, and b
+ * @param {string} hex
+ * @return {object}
+ */
+export function hexToRgb(hex: string): { r: number; g: number; b: number } | Error {
+  hex = hex.replace('#', '');
+  if (hex.length === 3) {
+    hex = hex.repeat(2);
+  }
+  let match = hex.match(/[a-z0-9]{2}/gi);
+  if (hex.length !== 6) {
+    match = null;
+  }
+  if (match === null) {
+    throw new Error('Not a valid hex value');
+  }
+  return {
+    r: parseInt(match[0], 16),
+    g: parseInt(match[1], 16),
+    b: parseInt(match[2], 16),
+  };
+}

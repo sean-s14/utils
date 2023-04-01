@@ -15,6 +15,7 @@ import {
   sortDesc,
   randomString,
   getRandomColor,
+  hexToRgb,
 } from '../index';
 
 test('capitalise', () => {
@@ -136,4 +137,10 @@ test('randomString', () => {
 
 test('getRandomColor', () => {
   expect(getRandomColor()).toEqual(expect.stringMatching(/#[a-z0-9]{6}/i));
+});
+
+test('hexToRgb', () => {
+  expect(hexToRgb('#123456')).toStrictEqual({ r: 18, g: 52, b: 86 });
+  expect(hexToRgb('#333')).toStrictEqual({ r: 51, g: 51, b: 51 });
+  expect(() => hexToRgb('#3333')).toThrowError(new Error('Not a valid hex value'));
 });
