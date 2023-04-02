@@ -16,6 +16,7 @@ import {
   randomString,
   getRandomColor,
   hexToRgb,
+  rgbToHex,
 } from '../index';
 
 test('capitalise', () => {
@@ -143,4 +144,12 @@ test('hexToRgb', () => {
   expect(hexToRgb('#123456')).toStrictEqual({ r: 18, g: 52, b: 86 });
   expect(hexToRgb('#333')).toStrictEqual({ r: 51, g: 51, b: 51 });
   expect(() => hexToRgb('#3333')).toThrowError(new Error('Not a valid hex value'));
+});
+
+test('rgbToHex', () => {
+  expect(rgbToHex(0, 0, 0)).toBe('#000000');
+  expect(rgbToHex(255, 255, 255)).toBe('#FFFFFF');
+  expect(rgbToHex(127, 127, 127)).toBe('#7F7F7F');
+  expect(() => rgbToHex(256, 255, 255)).toThrowError(new Error('Value must be between 0 and 255'));
+  expect(() => rgbToHex(-1, 255, 255)).toThrowError(new Error('Value must be between 0 and 255'));
 });

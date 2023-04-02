@@ -189,3 +189,25 @@ export function hexToRgb(hex: string): { r: number; g: number; b: number } | Err
     b: parseInt(match[2], 16),
   };
 }
+
+/**
+ * Converts an rgb value to its corresponding hexadecimal value
+ * @param {number} r
+ * @param {number} g
+ * @param {number} b
+ * @return {string}
+ */
+export function rgbToHex(r: number, g: number, b: number): string | Error {
+  for (const val of [r, g, b]) {
+    if (val < 0 || val > 255) {
+      throw new Error('Value must be between 0 and 255');
+    }
+  }
+  return (
+    '#' +
+    [r, g, b]
+      .map((x) => x.toString(16).padStart(2, '0'))
+      .join('')
+      .toUpperCase()
+  );
+}
