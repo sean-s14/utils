@@ -11,8 +11,7 @@ import {
   insert,
   sum,
   generateArray,
-  sortAsc,
-  sortDesc,
+  sort,
   randomString,
   getRandomColor,
   hexToRgb,
@@ -115,18 +114,14 @@ test('generateArray', () => {
   expect(generateArray(3, 7)).toStrictEqual([7, 8, 9]);
 });
 
-test('sortAsc', () => {
+test('sort', () => {
   const arr1 = [1, -2, 3, 4];
   const arr2 = [54, -2, 7, 0];
-  expect(sortAsc(arr1)).toStrictEqual([-2, 1, 3, 4]);
-  expect(sortAsc(arr2)).toStrictEqual([-2, 0, 7, 54]);
-});
-
-test('sortDesc', () => {
-  const arr1 = [1, -2, 3, 4];
-  const arr2 = [54, -2, 7, 0];
-  expect(sortDesc(arr1)).toStrictEqual([4, 3, 1, -2]);
-  expect(sortDesc(arr2)).toStrictEqual([54, 7, 0, -2]);
+  expect(sort(arr1)).toStrictEqual([-2, 1, 3, 4]);
+  expect(sort(arr2)).toStrictEqual([-2, 0, 7, 54]);
+  expect(sort(arr1, 'asc')).toStrictEqual([-2, 1, 3, 4]);
+  expect(sort(arr1, 'desc')).toStrictEqual([4, 3, 1, -2]);
+  expect(sort(arr2, 'desc')).toStrictEqual([54, 7, 0, -2]);
 });
 
 test('randomString', () => {

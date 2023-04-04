@@ -126,21 +126,24 @@ export function shuffle<T>(array: T[]): T[] {
 }
 
 /**
- * Sorts and returns a new array in ascending order
+ * Shuffles an array in-place
  * @param {Array} array
- * @return {Array}
  */
-export function sortAsc(array: any[]): any[] {
-  return array.sort((a, b) => a - b);
+export function shuffleInPlace<T>(array: T[]) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
 }
 
 /**
- * Sorts and returns a new array in descending order
+ * Sorts and returns a new array
  * @param {Array} array
+ * @param {string} order
  * @return {Array}
  */
-export function sortDesc(array: any[]): any[] {
-  return array.sort((a, b) => b - a);
+export function sort(array: any[], order: 'asc' | 'desc' = 'asc'): any[] {
+  return array.sort((a, b) => (order === 'asc' ? a - b : b - a));
 }
 
 /**
@@ -210,15 +213,4 @@ export function rgbToHex(r: number, g: number, b: number): string | Error {
       .join('')
       .toUpperCase()
   );
-}
-
-/**
- * Shuffles an array in-place
- * @param {Array} array
- */
-export function arrayShuffle<T>(array: T[]) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
 }
