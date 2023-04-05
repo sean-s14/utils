@@ -214,3 +214,15 @@ export function rgbToHex(r: number, g: number, b: number): string | Error {
       .toUpperCase()
   );
 }
+
+/**
+ * Determines if the input is a valid date
+ * @param {any} date
+ * @return {boolean}
+ */
+export function isDateValid(date: any): boolean {
+  if (typeof date === 'object' && date !== null && Object.prototype.toString.call(date) === '[object Date]') {
+    return !Number.isNaN(date.getTime());
+  }
+  return false;
+}

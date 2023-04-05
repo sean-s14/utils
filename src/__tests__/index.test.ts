@@ -16,6 +16,7 @@ import {
   getRandomColor,
   hexToRgb,
   rgbToHex,
+  isDateValid,
 } from '../index';
 
 test('capitalise', () => {
@@ -147,4 +148,12 @@ test('rgbToHex', () => {
   expect(rgbToHex(127, 127, 127)).toBe('#7F7F7F');
   expect(() => rgbToHex(256, 255, 255)).toThrowError(new Error('Value must be between 0 and 255'));
   expect(() => rgbToHex(-1, 255, 255)).toThrowError(new Error('Value must be between 0 and 255'));
+});
+
+test('isDateValid', () => {
+  expect(isDateValid(new Date())).toBe(true);
+  expect(isDateValid(new Date('2023-01-01'))).toBe(true);
+  expect(isDateValid(new Date('invalid date'))).toBe(false);
+  expect(isDateValid(0)).toBe(false);
+  expect(isDateValid('invalid date')).toBe(false);
 });
