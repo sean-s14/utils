@@ -17,6 +17,7 @@ import {
   hexToRgb,
   rgbToHex,
   isDateValid,
+  speedTest,
 } from '../index';
 
 test('capitalise', () => {
@@ -156,4 +157,9 @@ test('isDateValid', () => {
   expect(isDateValid(new Date('invalid date'))).toBe(false);
   expect(isDateValid(0)).toBe(false);
   expect(isDateValid('invalid date')).toBe(false);
+});
+
+test('speedTest', () => {
+  expect(speedTest(() => null)).toBe(null);
+  expect(speedTest((x, y) => x + y, 1, 2)).toBe(3);
 });

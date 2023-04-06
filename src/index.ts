@@ -226,3 +226,20 @@ export function isDateValid(date: any): boolean {
   }
   return false;
 }
+
+/**
+ * Logs the speed of a given function and returns the result
+ * @param {function} fn
+ * @param {any} args
+ * @return {any}
+ */
+export function speedTest(fn: (...args: any) => any, ...args: any): any {
+  if (typeof fn !== 'function') {
+    console.error(`Provide a valid function, ${typeof fn} provided`);
+    return;
+  }
+  console.time(fn.name);
+  const result = fn(...args);
+  console.timeEnd(fn.name);
+  return result;
+}
