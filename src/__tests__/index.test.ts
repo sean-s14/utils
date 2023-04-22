@@ -18,6 +18,7 @@ import {
   rgbToHex,
   isDateValid,
   speedTest,
+  unslugify,
 } from '../index';
 
 test('capitalise', () => {
@@ -162,4 +163,9 @@ test('isDateValid', () => {
 test('speedTest', () => {
   expect(speedTest(() => null)).toBe(null);
   expect(speedTest((x, y) => x + y, 1, 2)).toBe(3);
+});
+
+test('unslugify', () => {
+  expect(unslugify('a-title')).toBe('A Title');
+  expect(unslugify('three-words-here')).toBe('Three Words Here');
 });

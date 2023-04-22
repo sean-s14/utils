@@ -110,6 +110,7 @@ export function sum(array: number[]): number {
 /**
  * Generates an array of numbers starting from 0 up to (but not including) the number specified
  * @param {number} count
+ * @param {number} start
  * @return {Array}
  */
 export function generateArray(count: number, start: number = 0): number[] {
@@ -242,4 +243,15 @@ export function speedTest(fn: (...args: any) => any, ...args: any): any {
   const result = fn(...args);
   console.timeEnd(fn.name);
   return result;
+}
+
+/**
+ * Returns the unslugified version of slugified string
+ * @param {string} str
+ * @return {string}
+ */
+export function unslugify(str: string): string {
+  return str
+    .replace(/-/g, ' ') // replace all hyphens with spaces
+    .replace(/\b\w/g, (c) => c.toUpperCase()); // capitalize first letter of each word
 }
