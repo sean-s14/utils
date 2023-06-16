@@ -1,5 +1,6 @@
 import {
   capitalise,
+  capitaliseAll,
   calculatePercent,
   getRandomItem,
   removeDuplicates,
@@ -24,6 +25,11 @@ import {
 test('capitalise', () => {
   expect(capitalise('sean')).toBe('Sean');
   expect(capitalise('sean stocker')).toBe('Sean stocker');
+});
+
+test('capitaliseAll', () => {
+  expect(capitaliseAll('sean')).toBe('Sean');
+  expect(capitaliseAll('sean stocker')).toBe('Sean Stocker');
 });
 
 test('calculatePercent', () => {

@@ -8,6 +8,17 @@ export function capitalise(string: string): string {
 }
 
 /**
+ * Capitalises the first letter of every word in a string
+ * @param {string} string
+ * @return {string}
+ */
+export function capitaliseAll(string: string): string {
+  return string.replace(/\b\w/g, function (match) {
+    return match.toUpperCase();
+  });
+}
+
+/**
  * Calculates the percentage given a value and a total
  * @param {number} value
  * @param {number} total
