@@ -20,6 +20,7 @@ import {
   isDateValid,
   speedTest,
   unslugify,
+  splitOnUpper,
 } from '../index';
 
 test('capitalise', () => {
@@ -174,4 +175,9 @@ test('speedTest', () => {
 test('unslugify', () => {
   expect(unslugify('a-title')).toBe('A Title');
   expect(unslugify('three-words-here')).toBe('Three Words Here');
+});
+
+test('splitOnUpper', () => {
+  expect(splitOnUpper('splitOnUpper')).toBe('split On Upper');
+  expect(splitOnUpper('threeWordsHere')).toBe('three Words Here');
 });

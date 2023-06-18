@@ -266,3 +266,20 @@ export function unslugify(str: string): string {
     .replace(/-/g, ' ') // replace all hyphens with spaces
     .replace(/\b\w/g, (c) => c.toUpperCase()); // capitalize first letter of each word
 }
+
+/**
+ * Splits a given string based on any occurrence of an uppercase letter and returns the concatenated result as a string, with each split segment separated by a space.
+ * @param {string} str
+ * @return {string}
+ */
+export function splitOnUpper(str: string): string {
+  let result = '';
+  for (let i = 0; i < str.length; i++) {
+    const char = str[i];
+    if (char === char.toUpperCase() && i > 0) {
+      result += ' ';
+    }
+    result += char;
+  }
+  return result;
+}
