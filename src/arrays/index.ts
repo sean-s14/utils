@@ -133,3 +133,23 @@ export function union(a: any[], b: any[]): any[] {
   // Return union as array
   return Array.from(unionSet);
 }
+
+/**
+ * Flattens a multi-level nested array into a single-level array.
+ *
+ * @param {any[]} arr - The nested array to flatten.
+ * @returns {any[]} The flattened single-level array.
+ */
+export function flatten(arr: any[]): any[] {
+  let flattened: any[] = [];
+
+  arr.forEach((item) => {
+    if (Array.isArray(item)) {
+      flattened = flattened.concat(flatten(item));
+    } else {
+      flattened.push(item);
+    }
+  });
+
+  return flattened;
+}

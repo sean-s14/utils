@@ -9,6 +9,7 @@ import {
   generateArray,
   sort,
   union,
+  flatten,
 } from './index';
 
 test('getRandomItem', () => {
@@ -95,4 +96,18 @@ test('union', () => {
   expect(union([1, 2, 3], [3, 4, 5])).toStrictEqual([1, 2, 3, 4, 5]);
   expect(union([1, 2, 3], [3, 4, 5, 6, 7])).toStrictEqual([1, 2, 3, 4, 5, 6, 7]);
   expect(union(['a', 'b', 'c'], ['c', 'd', 'e'])).toStrictEqual(['a', 'b', 'c', 'd', 'e']);
+});
+
+describe('flatten', () => {
+  test('flattens a single level array', () => {
+    expect(flatten([1, 2, [3, 4]])).toEqual([1, 2, 3, 4]);
+  });
+
+  test('flattens a multi-level nested array', () => {
+    expect(flatten([1, [2, [3, [4]]], 5])).toEqual([1, 2, 3, 4, 5]);
+  });
+
+  test('flattens an empty array', () => {
+    expect(flatten([])).toEqual([]);
+  });
 });

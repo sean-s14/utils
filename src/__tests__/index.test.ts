@@ -16,9 +16,9 @@ test('isEqual', () => {
   expect(isEqual(obj1, obj3)).toBe(false);
 });
 
-test('wait', () => {
-  expect(wait(500).then(() => 500)).resolves.toBe(500);
-  expect(wait(1000).then(() => 1000)).resolves.toBe(1000);
+test('wait', async () => {
+  await expect(wait(500).then(() => 500)).resolves.toBe(500);
+  await expect(wait(1000).then(() => 1000)).resolves.toBe(1000);
 });
 
 test('getRandomColor', () => {
