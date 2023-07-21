@@ -108,6 +108,26 @@ export function sort(array: any[], order: 'asc' | 'desc' = 'asc'): any[] {
 }
 
 /**
+ * Flattens a multi-level nested array into a single-level array.
+ *
+ * @param {any[]} arr - The nested array to flatten.
+ * @returns {any[]} The flattened single-level array.
+ */
+export function flatten(arr: any[]): any[] {
+  let flattened: any[] = [];
+
+  arr.forEach((item) => {
+    if (Array.isArray(item)) {
+      flattened = flattened.concat(flatten(item));
+    } else {
+      flattened.push(item);
+    }
+  });
+
+  return flattened;
+}
+
+/**
  * Returns the union of two arrays.
  *
  * The union contains unique values that are present in either array.
@@ -135,21 +155,12 @@ export function union(a: any[], b: any[]): any[] {
 }
 
 /**
- * Flattens a multi-level nested array into a single-level array.
+ * Returns the intersection of two arrays.
  *
- * @param {any[]} arr - The nested array to flatten.
- * @returns {any[]} The flattened single-level array.
+ * @param {T[]} array1 - The first array
+ * @param {T[]} array2 - The second array
+ * @returns {T[]} - An array containing the intersection of array1 and array2
  */
-export function flatten(arr: any[]): any[] {
-  let flattened: any[] = [];
-
-  arr.forEach((item) => {
-    if (Array.isArray(item)) {
-      flattened = flattened.concat(flatten(item));
-    } else {
-      flattened.push(item);
-    }
-  });
-
-  return flattened;
+export function intersection<T>(array1: T[], array2: T[]): T[] {
+  return array1.filter((item) => array2.includes(item));
 }

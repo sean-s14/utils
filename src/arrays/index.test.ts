@@ -8,8 +8,9 @@ import {
   sum,
   generateArray,
   sort,
-  union,
   flatten,
+  union,
+  intersection,
 } from './index';
 
 test('getRandomItem', () => {
@@ -92,12 +93,6 @@ test('sort', () => {
   expect(sort(arr2, 'desc')).toStrictEqual([54, 7, 0, -2]);
 });
 
-test('union', () => {
-  expect(union([1, 2, 3], [3, 4, 5])).toStrictEqual([1, 2, 3, 4, 5]);
-  expect(union([1, 2, 3], [3, 4, 5, 6, 7])).toStrictEqual([1, 2, 3, 4, 5, 6, 7]);
-  expect(union(['a', 'b', 'c'], ['c', 'd', 'e'])).toStrictEqual(['a', 'b', 'c', 'd', 'e']);
-});
-
 describe('flatten', () => {
   test('flattens a single level array', () => {
     expect(flatten([1, 2, [3, 4]])).toEqual([1, 2, 3, 4]);
@@ -110,4 +105,16 @@ describe('flatten', () => {
   test('flattens an empty array', () => {
     expect(flatten([])).toEqual([]);
   });
+});
+
+test('union', () => {
+  expect(union([1, 2, 3], [3, 4, 5])).toStrictEqual([1, 2, 3, 4, 5]);
+  expect(union([1, 2, 3], [3, 4, 5, 6, 7])).toStrictEqual([1, 2, 3, 4, 5, 6, 7]);
+  expect(union(['a', 'b', 'c'], ['c', 'd', 'e'])).toStrictEqual(['a', 'b', 'c', 'd', 'e']);
+});
+
+test('intersection', () => {
+  expect(intersection([1, 2, 3], [3, 4, 5])).toStrictEqual([3]);
+  expect(intersection([1, 2, 3], [2, 3, 4, 5, 6, 7])).toStrictEqual([2, 3]);
+  expect(intersection(['a', 'b', 'c'], ['c', 'd', 'e'])).toStrictEqual(['c']);
 });
