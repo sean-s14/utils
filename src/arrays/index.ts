@@ -164,3 +164,13 @@ export function union(a: any[], b: any[]): any[] {
 export function intersection<T>(array1: T[], array2: T[]): T[] {
   return array1.filter((item) => array2.includes(item));
 }
+
+/**
+ * Removes falsy values from an array
+ *
+ * @param {T[]} array - The input array
+ * @returns {T[]} - The array with falsy values removed
+ */
+export function compact<T>(array: T[]): T[] {
+  return array.filter(Boolean);
+}

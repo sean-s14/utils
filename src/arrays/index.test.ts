@@ -11,6 +11,7 @@ import {
   flatten,
   union,
   intersection,
+  compact,
 } from './index';
 
 test('getRandomItem', () => {
@@ -117,4 +118,10 @@ test('intersection', () => {
   expect(intersection([1, 2, 3], [3, 4, 5])).toStrictEqual([3]);
   expect(intersection([1, 2, 3], [2, 3, 4, 5, 6, 7])).toStrictEqual([2, 3]);
   expect(intersection(['a', 'b', 'c'], ['c', 'd', 'e'])).toStrictEqual(['c']);
+});
+
+test('compact', () => {
+  expect(compact([0, 1, false, 2, '', 3])).toStrictEqual([1, 2, 3]);
+  expect(compact([0, 1, false, 2, '', 3, null, undefined])).toStrictEqual([1, 2, 3]);
+  expect(compact([0, 1, false, 2, '', 3, null, undefined, NaN])).toStrictEqual([1, 2, 3]);
 });
