@@ -174,3 +174,14 @@ export function intersection<T>(array1: T[], array2: T[]): T[] {
 export function compact<T>(array: T[]): T[] {
   return array.filter(Boolean);
 }
+
+/**
+ * Returns the difference between two arrays
+ *
+ * @param {T[]} array1 - The first array
+ * @param {T[]} array2 - The second array
+ * @returns {T[]} - An array containing the difference between array1 and array2
+ */
+export function difference<T>(array1: T[], array2: T[]): T[] {
+  return array1.filter((x) => !array2.includes(x));
+}

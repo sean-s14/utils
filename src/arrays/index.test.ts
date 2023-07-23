@@ -12,6 +12,7 @@ import {
   union,
   intersection,
   compact,
+  difference,
 } from './index';
 
 test('getRandomItem', () => {
@@ -124,4 +125,10 @@ test('compact', () => {
   expect(compact([0, 1, false, 2, '', 3])).toStrictEqual([1, 2, 3]);
   expect(compact([0, 1, false, 2, '', 3, null, undefined])).toStrictEqual([1, 2, 3]);
   expect(compact([0, 1, false, 2, '', 3, null, undefined, NaN])).toStrictEqual([1, 2, 3]);
+});
+
+test('difference', () => {
+  expect(difference([1, 2, 3], [3, 4, 5])).toStrictEqual([1, 2]);
+  expect(difference([1, 2, 3], [2, 3, 4, 5, 6, 7])).toStrictEqual([1]);
+  expect(difference(['a', 'b', 'c'], ['c', 'd', 'e'])).toStrictEqual(['a', 'b']);
 });
