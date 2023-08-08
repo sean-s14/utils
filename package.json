@@ -1,7 +1,11 @@
 {
   "name": "@sean14/utils",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "A custom JavaScript utility package that provides a collection of common functions for various tasks",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sean-s14/utils"
+  },
   "main": "lib/index.js",
   "files": [
     "lib/**/*"

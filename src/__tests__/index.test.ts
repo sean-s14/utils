@@ -22,7 +22,9 @@ test('wait', async () => {
 });
 
 test('getRandomColor', () => {
-  expect(getRandomColor()).toEqual(expect.stringMatching(/#[a-z0-9]{6}/i));
+  for (let i = 0; i < 100; i++) {
+    expect(getRandomColor()).toEqual(expect.stringMatching(/#[a-z0-9]{6}/i));
+  }
 });
 
 test('hexToRgb', () => {

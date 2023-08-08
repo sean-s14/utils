@@ -68,7 +68,7 @@ export async function wait<T>(milliseconds: number): Promise<T> {
  * @return {string}
  */
 export function getRandomColor(): string {
-  return '#' + (((1 << 24) * Math.random()) | 0).toString(16).padStart(6);
+  return '#' + ((Math.random() * 0xffffff) | 0).toString(16).padStart(6, '0');
 }
 
 /**
