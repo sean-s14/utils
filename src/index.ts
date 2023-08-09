@@ -13,7 +13,7 @@ import {
   union,
 } from './arrays/index';
 
-import { cleanObject, isPlainObject } from './objects/index';
+import { cleanObject, isPlainObject, deepMergeObjects } from './objects/index';
 
 export {
   capitalise,
@@ -34,6 +34,7 @@ export {
   union,
   cleanObject,
   isPlainObject,
+  deepMergeObjects,
 };
 
 /**

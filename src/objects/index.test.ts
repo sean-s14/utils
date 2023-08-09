@@ -1,4 +1,4 @@
-import { cleanObject, isPlainObject } from './index';
+import { cleanObject, isPlainObject, deepMergeObjects } from './index';
 
 test('cleanObject', () => {
   const obj1 = { a: 1, b: 0, c: true, d: false, e: 'a', f: '', g: null, h: undefined, i: NaN };
@@ -17,4 +17,11 @@ test('isPlainObject', () => {
   expect(isPlainObject('')).toBe(false);
   expect(isPlainObject(NaN)).toBe(false);
   expect(isPlainObject(() => null)).toBe(false);
+});
+
+test('deepMergeObjects', () => {
+  const obj1 = { a: 1, b: { c: 2 } };
+  const obj2 = { b: { d: 3 } };
+  const obj1ToBe = { a: 1, b: { c: 2, d: 3 } };
+  expect(deepMergeObjects(obj1, obj2)).toMatchObject(obj1ToBe);
 });
