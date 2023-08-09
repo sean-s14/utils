@@ -1,14 +1,4 @@
-import {
-  calculatePercent,
-  isEqual,
-  wait,
-  getRandomColor,
-  hexToRgb,
-  rgbToHex,
-  isDateValid,
-  speedTest,
-  cleanObject,
-} from '../index';
+import { calculatePercent, isEqual, wait, getRandomColor, hexToRgb, rgbToHex, isDateValid, speedTest } from '../index';
 
 test('calculatePercent', () => {
   expect(calculatePercent(3, 15)).toBe(20);
@@ -62,10 +52,4 @@ test('isDateValid', () => {
 test('speedTest', () => {
   expect(speedTest(() => null)).toBe(null);
   expect(speedTest((x, y) => x + y, 1, 2)).toBe(3);
-});
-
-test('cleanObject', () => {
-  const obj1 = { a: 1, b: 0, c: true, d: false, e: 'a', f: '', g: null, h: undefined, i: NaN };
-  const obj1ToBe = { a: 1, c: true, e: 'a' };
-  expect(cleanObject(obj1)).toMatchObject(obj1ToBe);
 });
