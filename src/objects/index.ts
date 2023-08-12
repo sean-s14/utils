@@ -27,6 +27,41 @@ export function cleanObject(obj: any): {} {
 }
 
 /**
+ * Converts all falsy values from an object (including nested objects) to a target value
+ * @param {object} obj
+ * @param {any} target
+ * @return {object}
+ * @example convertFalsyValues({ a: 1, b: 0, c: false, d: null, e: undefined, f: '', g: [], h: {} }, 'a') => { a: 1, b: 'a', c: 'a', d: 'a', e: 'a', f: 'a', g: 'a', h: 'a' }
+ */
+export function convertFalsyValues(obj: any, target: any): {} {
+  const newObj: any = {};
+
+  Object.keys(obj).forEach((prop) => {
+    const value = obj[prop];
+    if (Array.isArray(value)) {
+      if (value.length > 0) {
+        newObj[prop] = value;
+      } else {
+        newObj[prop] = target;
+      }
+    } else if (typeof value === 'object' && value !== null) {
+      const newValue = convertFalsyValues(value, target);
+      if (Object.keys(newValue).length !== 0) {
+        newObj[prop] = convertFalsyValues(value, target);
+      } else {
+        newObj[prop] = target;
+      }
+    } else if (value) {
+      newObj[prop] = value;
+    } else {
+      newObj[prop] = target;
+    }
+  });
+
+  return newObj;
+}
+
+/**
  *  Returns a boolean indicating whether the passed value is a plain object.
  * @param {any} value
  * @return {boolean}

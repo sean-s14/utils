@@ -1,6 +1,6 @@
 {
   "name": "@sean14/utils",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "A custom JavaScript utility package that provides a collection of common functions for various tasks",
   "repository": {
     "type": "git",
