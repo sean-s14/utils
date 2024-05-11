@@ -185,3 +185,25 @@ export function compact<T>(array: T[]): T[] {
 export function difference<T>(array1: T[], array2: T[]): T[] {
   return array1.filter((x) => !array2.includes(x));
 }
+
+
+/**
+ * Checks if an array contains only elements of a specified type
+ *
+ * @param arr - The array to check
+ * @param type - The type to check for ("string" or "object")
+ * @returns True if all elements in the array match the specified type, otherwise false
+ */
+export function isArrayOfType(arr: any[], type: string): boolean {
+  if (!Array.isArray(arr)) {
+      return false; // Not an array
+  }
+
+  for (let i = 0; i < arr.length; i++) {
+      if (typeof arr[i] !== type) {
+          return false; // Found a non-matching type
+      }
+  }
+
+  return true; // All elements match the type
+}

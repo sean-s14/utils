@@ -13,6 +13,7 @@ import {
   intersection,
   compact,
   difference,
+  isArrayOfType,
 } from './index';
 
 test('getRandomItem', () => {
@@ -131,4 +132,38 @@ test('difference', () => {
   expect(difference([1, 2, 3], [3, 4, 5])).toStrictEqual([1, 2]);
   expect(difference([1, 2, 3], [2, 3, 4, 5, 6, 7])).toStrictEqual([1]);
   expect(difference(['a', 'b', 'c'], ['c', 'd', 'e'])).toStrictEqual(['a', 'b']);
+});
+
+test('isArrayOfType', () => {
+  // Test arrays of strings
+  expect(isArrayOfType(['apple', 'banana', 'orange'], 'string')).toBe(true);
+  expect(isArrayOfType(['apple', 123, 'orange'], 'string')).toBe(false); // Not all strings
+  expect(isArrayOfType([], 'string')).toBe(true); // Empty array
+
+  // Test arrays of numbers
+  expect(isArrayOfType([1, 2, 3], 'number')).toBe(true);
+  expect(isArrayOfType([1, '2', 3], 'number')).toBe(false); // Not all numbers
+  expect(isArrayOfType([], 'number')).toBe(true); // Empty array
+
+  // Test arrays of objects
+  expect(isArrayOfType([{ name: 'John' }, { name: 'Jane' }], 'object')).toBe(true);
+  expect(isArrayOfType([{ name: 'John' }, 'Jane'], 'object')).toBe(false); // Not all objects
+  expect(isArrayOfType([], 'object')).toBe(true); // Empty array
+
+  // Test arrays of booleans
+  expect(isArrayOfType([true, false, true], 'boolean')).toBe(true);
+  expect(isArrayOfType([true, false, 1], 'boolean')).toBe(false); // Not all booleans
+  expect(isArrayOfType([], 'boolean')).toBe(true); // Empty array
+
+  // Test arrays of functions
+  const func1 = () => {};
+  const func2 = () => {};
+  expect(isArrayOfType([func1, func2], 'function')).toBe(true);
+  expect(isArrayOfType([func1, 123], 'function')).toBe(false); // Not all functions
+  expect(isArrayOfType([], 'function')).toBe(true); // Empty array
+
+  // Test arrays of undefined
+  expect(isArrayOfType([undefined, undefined, undefined], 'undefined')).toBe(true);
+  expect(isArrayOfType([undefined, null, undefined], 'undefined')).toBe(false); // Not all undefined
+  expect(isArrayOfType([], 'undefined')).toBe(true); // Empty array
 });

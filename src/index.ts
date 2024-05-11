@@ -11,6 +11,7 @@ import {
   generateArray,
   sort,
   union,
+  isArrayOfType,
 } from './arrays/index';
 
 import { cleanObject, isPlainObject, deepMergeObjects, convertFalsyValues } from './objects/index';
@@ -32,6 +33,7 @@ export {
   generateArray,
   sort,
   union,
+  isArrayOfType,
   cleanObject,
   isPlainObject,
   deepMergeObjects,
